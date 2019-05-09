@@ -1,6 +1,7 @@
 
 const picturesArr = ['Maine1.jpg', 'Tahoe1.jpg', 'Maine2.jpg', 'Utah1.jpg', 'Profile_Pic.png', 'Maine3.jpg', 'Maine5.jpg', 'NC1.jpg', 'dolomite1.jpg', 'Carmel1.jpg'];
 const changePic = document.getElementById('changePic');
+const clearDither = document.getElementById('undither');
 const sub = document.getElementById("dither");
 let pictureIndex = 0;
 let c = document.getElementById("canvas");
@@ -38,6 +39,14 @@ changePic.addEventListener("click", function(event) {
 	
     }
     pictureIndex++;
+    img.src = `./${picturesArr[pictureIndex]}`;
+    setup(img);
+
+    
+});
+
+clearDither.addEventListener("click", function(event) {
+    event.preventDefault();
     img.src = `./${picturesArr[pictureIndex]}`;
     setup(img);
 
