@@ -1,14 +1,18 @@
 
-const picturesArr = ['Maine1.jpg', 'Tahoe1.jpg', 'Maine2.jpg', 'Utah1.jpg', 'Profile_Pic.png', 'Maine3.jpg', 'Maine5.jpg', 'NC1.jpg', 'dolomite1.jpg', 'Carmel1.jpg'];
-const changePic = document.getElementById('changePic');
+const picturesArr = ['./Maine1.jpg', './Tahoe1.jpg', './Maine2.jpg', './Utah1.jpg', './Profile_Pic.png', './Maine3.jpg', './Maine5.jpg', './NC1.jpg', './dolomite1.jpg', './Carmel1.jpg'];
+ const picNavForward = document.getElementById('forward');
+const picNavBackward = document.getElementById('back');
 const clearDither = document.getElementById('undither');
+const remove = document.getElementById('remove');
+const picUrlSubmit = document.getElementById('picUrlSubmit');
+let picUrl = document.getElementById('picUrl');
 const sub = document.getElementById("dither");
 let pictureIndex = 0;
 let c = document.getElementById("canvas");
 let ctx = c.getContext('2d');
 let img = new Image();
 img.onload = init; img.crossOrigin = "";
-img.src = `./${picturesArr[pictureIndex]}`;
+img.src = `${picturesArr[pictureIndex]}`;
 
 function init() {
     setup(this);
@@ -25,29 +29,79 @@ document.onkeypress = function(e){
     var keyCode = e.keyCode || e.which;
     if (keyCode == '13'){
 	e.preventDefault();
-	setup(img);
-	dither();
+	
 
 	return false;
     }
 };
 
-changePic.addEventListener("click", function(event) {
+
+picNavForward.addEventListener("click", function(event) {
     event.preventDefault();
+    console.log(event.target);
     if(pictureIndex === picturesArr.length-1) {
 	pictureIndex = -1;
 	
     }
     pictureIndex++;
-    img.src = `./${picturesArr[pictureIndex]}`;
+    img.src = `${picturesArr[pictureIndex]}`;
     setup(img);
 
     
 });
 
+
+picNavBackward.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log(event.target);
+    if(pictureIndex === 0) {
+	pictureIndex = picturesArr.length;
+	
+    }
+    pictureIndex--;
+    img.src = `${picturesArr[pictureIndex]}`;
+    setup(img);
+
+    
+});
+
+picUrlSubmit.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log(picUrl.value);
+    let validator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(picUrl.value);
+    console.log("tripped");
+    if(!validator) {
+	console.log("not valid");
+	return;
+    } else {
+	picturesArr.push(picUrl.value);
+	pictureIndex = picturesArr.length-1;
+	    img.src = `${picturesArr[pictureIndex]}`;
+    setup(img);
+	
+    }
+
+    
+});
+
+remove.addEventListener("click", function(event) {
+    event.preventDefault();
+    picturesArr.splice(pictureIndex, 1);
+        if(pictureIndex === 0) {
+	pictureIndex = picturesArr.length;
+	
+    }
+    pictureIndex--;
+    img.src = `${picturesArr[pictureIndex]}`;
+    setup(img);
+
+    
+});
+
+
 clearDither.addEventListener("click", function(event) {
     event.preventDefault();
-    img.src = `./${picturesArr[pictureIndex]}`;
+    img.src = `${picturesArr[pictureIndex]}`;
     setup(img);
 
     

@@ -4,16 +4,31 @@
     <meta charset="UTF-8">
     <title>canvas-floyd-steinberg-dither</title>
     <meta property="og:image" content="https://tgiachett.github.io/canvas-floyd-steinberg-dither/screenshot.jpg"/>
+    <style type="text/css">
+      .button {
+      padding: 3px 3px 3px 3px;
+      border: 2px 2px 2px 2px;
+      margin: 2px 2px 2px 2px;
+      }
+    </style>
   </head>
-  <body>
-    <div>Hit the button for 1 bit black-and-white dither</div>
-    <button id="dither">Dither</button>
-    <button id="undither">Clear Dither</button>
-    <br>
-    <button id="changePic">Next Picture</button>
- <br>
-    <canvas id="canvas"></canvas>
-
-   <script src="pixelManip.js"></script> 
+  <body style="background-color: rgb(46, 46, 46);">
+    <div>
+      <div style="color: rgb(229, 181, 103);">1 bit black-and-white Floyd-Steinberg dither. Add images by pasting URls into the box. Use local images by cloning from <a style="color: rgb(229, 181, 103);" href="https://github.com/tgiachett/canvas-floyd-steinberg-dither">Here</a> and add local image urls into the pictures array in pixelManip.js. To save images, right click canvas and save as. Note: Rescaling the dithered image may result in patterns/artifacting</div>
+      <button class="pictureNav button" id="back">&#8592;</button>
+      <button class="pictureNav button" id="forward">&#8594;</button>
+      <button class="button" id="dither">Dither</button>
+      <button class="button" id="undither">Clear Dither</button>
+      <button class="button" id="remove">Remove Image</button>
+      
+      <form>
+	<input class="button" id="picUrl" type="text" name="picture url" placeholder="Picture URL here">
+	<input value="Add Picture" name="Add Picture" type="submit" id="picUrlSubmit">
+	
+      </form>
+      <br>
+      <canvas id="canvas"></canvas>
+    </div>
+    <script src="pixelManip.js"></script> 
   </body>
 </html>
