@@ -1,5 +1,5 @@
 
-const picturesArr = ['./Maine1.jpg', './Tahoe1.jpg', './Maine2.jpg', './Utah1.jpg', './Profile_Pic.png', './Maine3.jpg', './Maine5.jpg', './NC1.jpg', './dolomite1.jpg', './Carmel1.jpg'];
+const picturesArr = ['./Assets/Images/Maine1.jpg', './Assets/Images/Tahoe1.jpg', './Assets/Images/Maine2.jpg', './Assets/Images/Utah1.jpg', './Assets/Images/Profile_Pic.png', './Assets/Images/Maine3.jpg', './Assets/Images/Maine5.jpg', './Assets/Images/NC1.jpg', './Assets/Images/Dolomite1.jpg', './Assets/Images/Carmel1.jpg'];
  const picNavForward = document.getElementById('forward');
 const picNavBackward = document.getElementById('back');
 const clearDither = document.getElementById('undither');
