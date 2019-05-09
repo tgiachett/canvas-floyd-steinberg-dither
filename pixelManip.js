@@ -1,5 +1,5 @@
 
-const picturesArr = ['Maine1.jpg', 'Maine2.jpg', 'Utah1.jpg', 'Profile_Pic.png', 'dolomite1.jpg', 'Carmel1.jpg'];
+const picturesArr = ['Maine1.jpg', 'Tahoe1.jpg', 'Maine2.jpg', 'Utah1.jpg', 'Profile_Pic.png', 'Maine3.jpg', 'Maine5.jpg', 'NC1.jpg', 'dolomite1.jpg', 'Carmel1.jpg'];
 const changePic = document.getElementById('changePic');
 const sub = document.getElementById("dither");
 let pictureIndex = 0;
