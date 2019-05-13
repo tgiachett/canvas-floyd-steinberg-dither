@@ -1,8 +1,9 @@
 
 const picturesArr = ['./Assets/Images/Maine1.jpg', './Assets/Images/Tahoe1.jpg', './Assets/Images/Maine2.jpg', './Assets/Images/Utah1.jpg', './Assets/Images/Profile_Pic.png', './Assets/Images/Maine3.jpg', './Assets/Images/Maine5.jpg', './Assets/Images/NC1.jpg', './Assets/Images/Dolomite1.jpg', './Assets/Images/Carmel1.jpg'];
- const picNavForward = document.getElementById('forward');
+const picNavForward = document.getElementById('forward');
 const picNavBackward = document.getElementById('back');
 const clearDither = document.getElementById('undither');
+const message = document.getElementById('message');
 const remove = document.getElementById('remove');
 const picUrlSubmit = document.getElementById('picUrlSubmit');
 let picUrl = document.getElementById('picUrl');
@@ -69,9 +70,8 @@ picUrlSubmit.addEventListener("click", function(event) {
     event.preventDefault();
     console.log(picUrl.value);
     let validator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(picUrl.value);
-    console.log("tripped");
     if(!validator) {
-	console.log("not valid");
+	message.innerHTML = "Not valid Picture URL";
 	return;
     } else {
 	picturesArr.push(picUrl.value);
@@ -83,6 +83,7 @@ picUrlSubmit.addEventListener("click", function(event) {
 
     
 });
+
 
 remove.addEventListener("click", function(event) {
     event.preventDefault();
