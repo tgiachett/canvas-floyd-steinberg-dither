@@ -39,7 +39,7 @@ document.onkeypress = function(e){
 
 picNavForward.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log(event.target);
+
     if(pictureIndex === picturesArr.length-1) {
 	pictureIndex = -1;
 	
@@ -54,7 +54,6 @@ picNavForward.addEventListener("click", function(event) {
 
 picNavBackward.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log(event.target);
     if(pictureIndex === 0) {
 	pictureIndex = picturesArr.length;
 	
@@ -68,7 +67,6 @@ picNavBackward.addEventListener("click", function(event) {
 
 picUrlSubmit.addEventListener("click", function(event) {
     event.preventDefault();
-    console.log(picUrl.value);
     let validator = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/.test(picUrl.value);
     if(!validator) {
 	message.innerHTML = "Not valid Picture URL";
@@ -131,7 +129,6 @@ function dither (number) {
 
     for (let i = 0; i < len; i += 4) {
 	if(dataTrg[i+(c.width * 4)] === -1 || dataTrg[i+4] === -1 ) {
-	    console.log("end pixel");
 	    break;
 	    ;} else {
 		let oldPixel = dataTrg[i];
